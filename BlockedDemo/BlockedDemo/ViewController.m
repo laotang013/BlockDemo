@@ -110,6 +110,13 @@ static int static_global_j = 2; //静态全局变量
          以上4种情况，系统都会默认调用copy方法把Block赋复制
      */
     
+    /*
+     Block 生命周期
+      Block是一个对象，既然是一个对象，它必然有着和对象一样的生命周期即如果没有被引用就会被释放。
+     解决循环引用:
+       Weak-Strong-Dance并不能保证 block所引用对象的释放时机在执行之后， 更安全的做法应该是在 block 内部使用 strongSelf 时进行 nil检测，这样可以避免上述情况。
+     */
+    
 }
 -(void)test4
 {
